@@ -1,0 +1,118 @@
+xsel (1.2.0+git9bfc13d.20180109-3) unstable; urgency=medium
+
+  * Upload to unstable (1.2.0+git9bfc13d.20180109-3)
+
+ -- Josue Ortega <josue@debian.org>  Sun, 07 Jul 2019 14:35:35 -0600
+
+xsel (1.2.0+git9bfc13d.20180109-2) experimental; urgency=medium
+
+  * Add debian/patch/00-fix-gcc-build.patch:
+    - Fix GCC-9 strncpy error: specified bound equals destination
+      size (Closes: #925865).
+  * Bump Standards-Version to 4.3.0, no changes required.
+  * Add debian CI tests.
+  * Update debhelper to use debhelper-compat (= 12).
+
+ -- Josue Ortega <josue@debian.org>  Wed, 12 Jun 2019 19:27:26 -0600
+
+xsel (1.2.0+git9bfc13d.20180109-1) unstable; urgency=medium
+
+  * Update with upstream latest commit at Github (Closes: #895735).
+  * Remove the following patches, they are no longer needed:
+    - 10_fix-spelling.patch
+    - 20_fix-manpage-hyphens.patch
+    - 30_fix-crash-when-copying-NULL-selections.patch
+    - 40_fix-large-pastes.patch
+    - 50_fstat-if-needed.patch
+  * Bumps compat level from 10 to 11.
+  * debian/control: Updates Vcs fields to salsa.debian.org.
+  * Bumps Standards-Version to 4.1.4, no changes required.
+
+ -- Josue Ortega <josue@debian.org>  Mon, 11 Jun 2018 20:24:43 -0600
+
+xsel (1.2.0-4) unstable; urgency=medium
+
+  * Adds debian/patch/50_fstat-if-needed.patch in order to avoid crash
+    if stdin is not needed (Closes: #831415), thanks
+    to Carlos Maddela <e7appew@gmail.com> for providing the patch.
+  * Bumps compat level from 9 to 10:
+    - debian/control: Removes autotools-dev from Build-Depends.
+    - debian/rules: Removes --with autotools_dev option.
+  * debian/control: Bumps Standards-Version to 4.1.1, no changes needed.
+
+ -- Josue Ortega <josue@debian.org>  Sun, 15 Oct 2017 10:46:48 -0600
+
+xsel (1.2.0-3) unstable; urgency=medium
+
+  * New Maintainer (Closes: #869293).
+  * Adds 40_fix-large-pastes.patch in order to fix memory corruption in large
+    selections, thanks to Carlos Maddela <maddela@labyrinth.net.au>
+    for profivding the patch (Closes: #758599).
+  * debian/control: Updates Vcs-* to use secure URI.
+  * debian/copyright updated to Machine Readable format (DEP-5).
+  * Standards-Version bumped to 4.0.0, no changes needed.
+  * debian/rules: Adds hardening=+all flag to DEB_BUILD_MAINT_OPTIONS.
+
+ -- Josue Ortega <josue@debian.org>  Sun, 23 Jul 2017 13:17:51 -0600
+
+xsel (1.2.0-2) unstable; urgency=low
+
+  * convert to 3.0 (quilt) source format
+  * fix spelling mistake pointed out by lintian
+  * fix manpage hyphens as pointed out by lintian
+  * move to debhelper compat v9
+  * minimize d/rules using dh(1)
+  * auto-refresh config.* using autotools-dev; add build-dep
+  * d/control: update VCS headers; add gbp config
+  * bump std-ver to 3.9.4, no further changes needed
+  * fix crash when copying empty/NULL selections (Closes: #596763)
+
+ -- Joe Nahmias <jello@debian.org>  Sun, 30 Jun 2013 20:12:16 -0400
+
+xsel (1.2.0-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control: drop, now unnecessary, x-dev from Build-Depends
+  * bump debhelper compat to 6, no changes.
+
+ -- Joe Nahmias <jello@debian.org>  Mon, 24 Mar 2008 23:04:35 -0400
+
+xsel (1.0.0-1) unstable; urgency=low
+
+  * New upstream release
+    + Include UTF-8 support, closes: #231413.
+    + fix manpage typo, closes: #203925.
+    + fix output when backgrounded, closes: #444638.
+  * added watch file
+  * moved Homepage to source section of control
+  * added Vcs-Svn and Vcs-Browser fields to source section of control
+  * manpage section -> 1x to make lintian happy
+
+ -- Joe Nahmias <jello@debian.org>  Mon, 14 Jan 2008 23:43:44 -0500
+
+xsel (0.9.6-3) unstable; urgency=low
+
+  * New maintainer, closes: #453669.
+  * bump debhelper compat to 5.
+  * bump std-ver to 3.7.3, no changes.
+
+ -- Joe Nahmias <jello@debian.org>  Mon, 03 Dec 2007 22:31:42 -0500
+
+xsel (0.9.6-2) unstable; urgency=low
+
+  * Orphaning - maintainer set to QA Group
+
+ -- Thom May <thom@debian.org>  Fri, 30 Nov 2007 14:22:32 +0000
+
+xsel (0.9.6-1.1) unstable; urgency=low
+
+  * Non-maintainer upload to help with xlibs-dev transition
+  * debian/control: Replaced xlibs-dev build-dep. (Closes: #346875)
+
+ -- Marc 'HE' Brockschmidt <he@debian.org>  Fri, 20 Jan 2006 17:08:23 +0100
+
+xsel (0.9.6-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Thom May <thom@debian.org>  Mon, 11 Feb 2002 08:54:01 +0000

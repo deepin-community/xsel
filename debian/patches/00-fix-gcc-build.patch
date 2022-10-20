@@ -1,0 +1,28 @@
+Description: Replace strncpy function for snprintf in order to avoid error:
+ 'specified bound equals destination size [-Werror=stringop-truncation]' at build time with GCC-9.
+Author: Josue Ortega <josue@debian.org>
+Bug: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=925865
+Last-Update: 2019-06-12
+
+--- a/xsel.c
++++ b/xsel.c
+@@ -249,7 +249,8 @@
+   if (atom == utf8_atom) return "UTF8_STRING";
+ 
+   ret = XGetAtomName (display, atom);
+-  strncpy (atom_name, ret, sizeof (atom_name));
++  //strncpy (atom_name, ret, sizeof (atom_name));
++  snprintf(atom_name, sizeof (atom_name), "%s", ret);
+   if (atom_name[MAXLINE] != '\0')
+     {
+       atom_name[MAXLINE-3] = '.';
+@@ -328,7 +329,8 @@
+ _xs_strncpy (char * dest, const char * src, size_t n)
+ {
+   if (n > 0) {
+-    strncpy (dest, src, n);
++    //strncpy (dest, src, n);
++	snprintf (dest, n, "%s", src);
+     dest[n-1] = '\0';
+   }
+   return dest;
